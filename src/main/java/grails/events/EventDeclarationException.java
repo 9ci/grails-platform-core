@@ -15,26 +15,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package grails.events;
 
-import org.grails.plugin.platform.events.EventReply
+import org.grails.plugin.platform.events.EventException;
 
+public class EventDeclarationException extends EventException {
 
-class SampleController {
+    private static final long serialVersionUID = 1;
 
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
+    public EventDeclarationException(String s) {
+        super(s);
     }
-
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
-    }
-
 }

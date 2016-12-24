@@ -15,26 +15,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package org.grails.plugin.platform.events;
 
-import org.grails.plugin.platform.events.EventReply
+import grails.core.ArtefactHandlerAdapter;
 
 
-class SampleController {
+public class EventsArtefactHandler extends ArtefactHandlerAdapter {
 
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
+    public static final String TYPE = "Events";
+    public static final String SUFFIX = "Events";
+
+    public EventsArtefactHandler() {
+        super(TYPE, EventsClass.class, DefaultEventsClass.class, SUFFIX, true);
     }
 
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
+    @Override
+    public String getPluginName() {
+        return "platformCore";
     }
-
 }

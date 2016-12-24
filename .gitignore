@@ -5,4 +5,5 @@
 target
 .settings
 *.zip
-web-app/WEB-INF
+.gradle
+build

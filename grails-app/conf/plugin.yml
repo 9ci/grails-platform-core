@@ -1,0 +1,9 @@
+---
+plugin:
+  platformcore:
+    events:
+      disabled: false
+      poolSize: 10
+      catchFlushExceptions: true
+      gorm:
+        disable: false

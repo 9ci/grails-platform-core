@@ -30,4 +30,5 @@ package org.grails.plugin.platform.test
 class Author {
 
     String name
+    String testProperty
 }

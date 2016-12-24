@@ -15,26 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package org.grails.plugin.platform.events;
 
-import org.grails.plugin.platform.events.EventReply
+import grails.core.GrailsClass;
 
-
-class SampleController {
-
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
-    }
-
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
-    }
-
+public interface EventsClass extends GrailsClass {
 }
