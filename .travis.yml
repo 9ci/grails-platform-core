@@ -1,14 +1,22 @@
 language: groovy
+
 jdk:
-- oraclejdk7
-before_script:
-- rm -rf target
-script: ./travis-build.sh
+- oraclejdk8
+
+sudo: false
+
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.m2/"
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+script: "./travis-build.sh"
+
 env:
   global:
-  global:
-  - GIT_NAME="Graeme Rocher"
-  - GIT_EMAIL="graeme.rocher@gmail.com"
-  - secure: hUskwABhAAykqIFryHdeRt8pbqSEIccO8I8be9L2z9BWa6k1Tl92CXkI6NKyIDbZXCZIydbWpgHmet0OGyeK1WhJkhmvGxZonUbuQ6FOvM3INm9zoMAwjqGa/UIkmdFivtoglreXXrNyc+LSjv/faqY7Qid2vigAibEMxv1O5M8=
-  - secure: A+49JHDs5k4xnnGS4xRKYqC7YcA/Y8im5D3Qd/rzAbEw7b50k1zTBU2Gep9R7OTL9NjxYI6UTS+30aI7mC6kIWKtP0i74CAj7t9qAND3fHTV0pH75WXUZw6LFnzfXeins3cBUdaTi/kvNOfNoVgVllwvTvJB6JjMQBSwyYk+Mq8=
-  - secure: ktogIWHXHMh/SbggZtqZtOT7WB2xFHb1Ah/IolFLhB7vJUEmYmfwdYbh1s/6G1Kh+ejX/11W2pGBzv9mK9QQnIaJFdKsPh/KMLbxyLzRAZG6kC5wL5mRWUsDbB/C8ufGeb0c9mg4xPVAEbPHQhScBItGbVkob1xeZqqeyzsS6VM=
+  - secure: MocO0gpOAcZ8EpU2eVl8+TLzmHymufHxjcF9IjC1Eaht7nO9PhKbGd9zNBagdHPdNRfW+RaEfC0BRyFN56O4WVqSfKNr/+V85edm9DOtvhmwnHStBY/BgdfC51HgOko3XwKEjw/la8S3m7nR3rUUt9CxFvfIEPiMwmp4VYT8zlk=
+  - secure: DJRga4EV6lw/F0OYtl6dbHbxhuTwreoqqFPwU7KRTUgNFcO4V3GKfDEEGJmN0lDnD+rG4vyV/6zR/agDh0Wxq45TIQ8VVhx2+k9/7BJTmcMMagAl9sctN057795bnjjbhJdbJlQHI4EJoaE/1IVrIyzlfhNIM0u7BWqJXzYcBms=
