@@ -2,6 +2,8 @@
 
 set -e
 
+rm -rf ./build
+
 echo "### Running plugin tests ###"
 ./gradlew clean check assemble --stacktrace
 
