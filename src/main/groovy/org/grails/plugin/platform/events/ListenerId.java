@@ -21,9 +21,7 @@ import groovy.lang.Closure;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
-
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
+import java.util.Objects;
 
 /**
  * @author Stephane Maldini <smaldini@vmware.com>
@@ -219,25 +217,17 @@ public class ListenerId implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        ListenerId listener = (ListenerId) o;
-        return new EqualsBuilder()
-            .append(listener.className, className)
-            .append(listener.namespace, namespace)
-            .append(listener.hashCode, hashCode)
-            .append(listener.methodName, methodName)
-            .append(listener.topic, topic)
-            .isEquals();
+        ListenerId that = (ListenerId) o;
+        return Objects.equals(className, that.className) &&
+                Objects.equals(methodName, that.methodName) &&
+                Objects.equals(hashCode, that.hashCode) &&
+                Objects.equals(topic, that.topic) &&
+                Objects.equals(namespace, that.namespace);
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder()
-            .append(className)
-            .append(methodName)
-            .append(hashCode)
-            .append(topic)
-            .append(namespace)
-            .toHashCode();
+        return Objects.hash(className, methodName, hashCode, topic, namespace);
     }
+
 }
