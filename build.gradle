@@ -5,10 +5,11 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
 
-version "0.1"
+version "3.0.1.SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin:"eclipse"
@@ -44,21 +45,32 @@ dependencies {
     provided "org.codehaus.groovy:groovy-ant"
     testCompile "org.grails:grails-plugin-testing"
 
-    compile "org.grails.plugins:hibernate4"
-    compile "org.hibernate:hibernate-core:4.3.10.Final"
-    compile "org.hibernate:hibernate-ehcache:4.3.10.Final"
+    provided "org.grails.plugins:hibernate4"
+    provided "org.hibernate:hibernate-core:4.3.10.Final"
+    provided "org.hibernate:hibernate-ehcache:4.3.10.Final"
 }
+
 grailsPublish {
-    // TODO: Provide values here
-    user = 'user'
-    key = 'key'
-    githubSlug = 'foo/bar'
+    title = 'Platform core plugin'
+    desc = 'Grails Platform core plugin'
+    developers = [snimavat: 'Sudhir Nimavat']
+    githubSlug = '9ci/grails-platform-core'
+    issueTrackerUrl = 'https://github.com/9ci/grails-platform-core/issues'
+    vcsUrl = 'https://github.com/9ci/grails-platform-core'
+
     license {
         name = 'Apache-2.0'
     }
-    title = "My Plugin"
-    desc = "Full plugin description"
-    developers = [johndoe:"John Doe"]
-    portalUser = ""
-    portalPassword = ""    
+
+    userOrg = '9ci'
+    repo = 'grails-plugins'
+    bintray {
+        //override plufin only if it is snapshot
+        override = rootProject.version.endsWith("SNAPSHOT")
+    }
 }
+
+bootRepackage.enabled = false
+
+javadoc.enabled = false
+javadocJar.enabled = false
