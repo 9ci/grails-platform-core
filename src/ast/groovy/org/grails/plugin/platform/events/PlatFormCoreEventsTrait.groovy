@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
 @CompileStatic
-@Enhances([ControllerArtefactHandler.TYPE, ServiceArtefactHandler.TYPE)
+@Enhances([ControllerArtefactHandler.TYPE, ServiceArtefactHandler.TYPE])
 trait PlatFormCoreEventsTrait {
 
 	@Transient
