@@ -15,26 +15,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package org.grails.plugin.platform.conventions
 
-import org.grails.plugin.platform.events.EventReply
+import grails.core.GrailsClass
 
+/**
+ * Public interface for convention evaluation and overrides
+ */
+interface Conventions {
+    /**
+     * Discovers all the code block conventions (i.e. controller actions) irrespective of underlying convention
+     * @todo This is broken under Grails 1.3 currently
+     */
+    List<String> discoverCodeBlockConventions(Class actualClass, Class annotation, boolean allowArgs)
 
-class SampleController {
-
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
-    }
-
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
-    }
-
+    GrailsClass findArtefactBySimpleClassName(String classNameNoPackage, String artefactType)
 }

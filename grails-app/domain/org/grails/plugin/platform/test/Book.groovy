@@ -30,5 +30,6 @@ package org.grails.plugin.platform.test
 class Book {
 
     String title
+    String testProperty
     static hasMany = [authors:Author]
 }

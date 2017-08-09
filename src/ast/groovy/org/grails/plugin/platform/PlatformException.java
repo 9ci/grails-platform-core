@@ -15,26 +15,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package org.grails.plugin.platform;
 
-import org.grails.plugin.platform.events.EventReply
+public class PlatformException extends RuntimeException {
 
+    private static final long serialVersionUID = 1;
 
-class SampleController {
-
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
+    public PlatformException() {
+        super();
     }
 
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
+    public PlatformException(String s) {
+        super(s);
     }
 
+    public PlatformException(String s, Throwable throwable) {
+        super(s, throwable);
+    }
+
+    public PlatformException(Throwable throwable) {
+        super(throwable);
+    }
 }

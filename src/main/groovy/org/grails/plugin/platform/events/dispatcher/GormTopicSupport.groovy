@@ -15,26 +15,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.grails.plugin.platform.test
+package org.grails.plugin.platform.events.dispatcher
 
-import org.grails.plugin.platform.events.EventReply
+import org.grails.datastore.mapping.engine.event.AbstractPersistenceEvent
 
+/**
+ * @author Stephane Maldini <smaldini@vmware.com>
+ * @version 1.0
+ * @file
+ * @date 03/01/12
+ * @section DESCRIPTION
+ * <p/>
+ * [Does stuff]
+ */
+interface GormTopicSupport {
 
-class SampleController {
+    String GORM_SOURCE = "gorm"
 
-    def testEventOneSync() {
-        Map data = [:]
-        EventReply reply = event("testSync", data, [namespace:"test", fork:false])
-        reply.waitFor()
-        return data
-    }
-
-    def testEventOneAsync() {
-        Map data = [:]
-        EventReply reply = event("testAsync", data, [namespace:"test", fork:true])
-        reply.waitFor()
-
-        return [replies: reply.getValues()]
-    }
-
+    void processCancel(AbstractPersistenceEvent evt, Object returnValue)
+    String convertTopic(AbstractPersistenceEvent evt)
+    Object extractEntity(AbstractPersistenceEvent source)
 }
