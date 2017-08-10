@@ -1,22 +1,16 @@
 language: groovy
-
 jdk:
 - oraclejdk8
-
 sudo: false
-
 cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
   - "$HOME/.m2/"
-
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 script: "./travis-build.sh"
-
 env:
   global:
-  - secure: MocO0gpOAcZ8EpU2eVl8+TLzmHymufHxjcF9IjC1Eaht7nO9PhKbGd9zNBagdHPdNRfW+RaEfC0BRyFN56O4WVqSfKNr/+V85edm9DOtvhmwnHStBY/BgdfC51HgOko3XwKEjw/la8S3m7nR3rUUt9CxFvfIEPiMwmp4VYT8zlk=
-  - secure: DJRga4EV6lw/F0OYtl6dbHbxhuTwreoqqFPwU7KRTUgNFcO4V3GKfDEEGJmN0lDnD+rG4vyV/6zR/agDh0Wxq45TIQ8VVhx2+k9/7BJTmcMMagAl9sctN057795bnjjbhJdbJlQHI4EJoaE/1IVrIyzlfhNIM0u7BWqJXzYcBms=
+  - secure: COwYfqL3pt7vC5+LYYeT8cQsALjaVr4C7e17ky5Z8qaWR/5o2ZaN2W1KbFeoc/TZMvW8sfnbjIoeBwCV/23c/I445KlJRMZl3DYodldGbAxhUtmPoeZmkBDxNBFUcCOcC3LToDy/CQjGMTwh6rJuRVvkUtpAKVjMkksVkPyQDjK3vXHaVl/MQ39cVnySAD+phQNrTUCCvsBJ2Cr79+qivzpeEps3hxUtG3wR9PeXBeKFqj+7sMHwRHxaLe3nMmbWNlNST0fI+Y95dywbhGr6fTMSNDBlIXL6HtDAmg7aM7bs0kBTixhGHKDP4icGomxlBRptlt5JfydCkpubOp6LnSK1fGyo07NuTyUki2Jn+Lyo8n3AwiMpHM6nnL11F7JT0gGDmRbtbDC86k/olXGIWPYLIiKM8A6rl/bBBdirhaSSmLfmNR0LocnicGNmGZR/EpVg3tQ1kWuDI6NO4YN+NK/8DXmYUnDhbSqn7hq4MKWw98gDG85niN9q64eWvMl+H5dM0VEjcbgrAzG6Tws5wRmLtyzWBVp5kohq5Xbklk0N4EN/Db+adHG+fFFSGPB/tqKA/Cn9AIZjkDq4F5LqsmyKLBtLnO9BrADLoF3YufR1ltDtMMAEcV7XnW7rGGQhF0TXIML2GUIxbRlNs0JxL5vL1aX1NXzfCSGMcsVHK+4=
+  - secure: 2VA4O2ZLEr7wmg4SEv6MZudOmFRrDkp31VYDIzbsDvrh7/ZOziWS0lMDhEbl4x3sOuIgXmoLK5P5K586lX/REKx0k6kcfSAXFrik3jeQzN60oFoE8Sm/UsDEVGrxh4HL0ujKpAuIjou/A8F1FSFF4XexK6R6kgglIqk6qRoTE1FF2Sk3hLPa0p8pCjSgh0CM4wmQwfooeYcoitTL89zCTnQIIjwodjqAX8g8c00FRiOa8bTw9lPPMDChwuL95wEqkucMmAWCqzcBTKWa+YZYVWMgTZDNcZjxLpClU8rCUfPwMZ20nfccdvBpF7L37ilNlBmeTPGO0tJJWuDuzfnRfsNgPqYe6/1JIs9OMIz5Ag7Rg23gNU75bMZfrgeZ4yLA93hm/aHsjQ16fXKlqZjl6jSdObnehSg8qrP7v3XiZdDFjGRZTrr8Hc0ejwnzbdLDnUvPlIbSDKAOcecHcUNBVS0KoKxP5GCVjSVrUBuEbM6aAjtJZTItQ6mNTkMvqmjQP/VpeoGi5f4ik4UucnALBnTuO6j6V6VMI6wIs5z3cCVdtnsjHx3VjH0Nsqu/C7NMHwiap43WOxQUJ2md/rbQFOwD4q+ME0ISMiELB80V/vB/SiWciAd6I7xmaMDlWMZfe805R8Ly3H3MYpO7na8HXyaxpTKuJcXgjUsGXKGVUN0=

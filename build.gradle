@@ -51,6 +51,9 @@ dependencies {
 }
 
 grailsPublish {
+    user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
+    key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
+
     title = 'Platform core plugin'
     desc = 'Grails Platform core plugin'
     developers = [snimavat: 'Sudhir Nimavat']
