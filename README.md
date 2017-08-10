@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/grails-plugins/grails-platform-core.svg)](https://travis-ci.org/grails-plugins/grails-platform-core)
+[![Build Status](https://travis-ci.org/9ci/grails-platform-core.svg?branch=master)](https://travis-ci.org/9ci/grails-platform-core)
 
 # Grails Plugin Platform
 
