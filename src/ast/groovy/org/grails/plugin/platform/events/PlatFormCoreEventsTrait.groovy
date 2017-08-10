@@ -1,5 +1,7 @@
 package org.grails.plugin.platform.events
 
+import grails.core.GrailsApplication
+import grails.util.Holders
 import grails.artefact.Enhances
 import grails.plugins.metadata.GrailsPlugin
 import grails.util.GrailsNameUtils
@@ -21,9 +23,6 @@ trait PlatFormCoreEventsTrait {
 
 	@Transient
 	private String _cachedPluginName
-
-	@Transient
-	private Events platformcoreEvents
 
 	public EventReply event(String topic, Closure callback) {
 		this.event(topic, null, null, callback)
@@ -55,10 +54,9 @@ trait PlatFormCoreEventsTrait {
 		platformcoreEvents.waitFor(l, timeUnit, replies)
 	}
 
-	@Autowired
-	@Qualifier("platformcoreEvents")
-	public void setPlatformcoreEvents(Events events) {
-		this.platformcoreEvents = events
+	
+	public Events getPlatformcoreEvents() {
+		return (Events)Holders.grailsApplication.mainContext.getBean("platformcoreEvents")
 	}
 
 	private String getPluginName() {
